@@ -133,15 +133,7 @@ ul {
 }
 
 .modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 408px;
-  padding: 72px 24px 24px;
-  background: #ffffff;
-  border-radius: 4px;
-  transform: translate(-50%, -50%) scale(0.9);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
 
 .backdrop.is-open .modal {
@@ -158,6 +150,9 @@ ul {
   background: #e7e9fc;
   border: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -183,7 +178,18 @@ ul {
 .input-wrapper {
   position: relative;
 }
+.input-wrapper input {
+  padding-left: 38px;
+}
 
+.input-wrapper .icon {
+  position: relative;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: #2e2f42;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 .input-wrapper input,
 textarea {
   width: 100%;
@@ -199,6 +205,10 @@ textarea:focus {
   outline: none;
 }
 
+.input-wrapper input:focus + .icon {
+  fill: #4d5ae5;
+}
+
 .form-icon {
   position: absolute;
   left: 16px;
@@ -206,6 +216,13 @@ textarea:focus {
   transform: translateY(-50%);
 }
 
+.checkbox-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  margin-bottom: 24px;
+}
 .checkbox-field input {
   position: absolute;
   opacity: 0;
@@ -215,6 +232,7 @@ textarea:focus {
   width: 16px;
   height: 16px;
   border: 1px solid #2e2f42;
+  border-radius: 2px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -222,6 +240,7 @@ textarea:focus {
 
 .checkbox-field input:checked + .custom-checkbox {
   background: #4d5ae5;
+  border-color: #4d5ae5;
 }
 
 .modal-submit {
@@ -529,7 +548,7 @@ textarea:focus {
   color: #f4f4fd;
   text-transform: uppercase;
   display: inline-block;
-  margin: 16px 0;
+  margin-bottom: 16px;
 }
 
 .footer-left p {
